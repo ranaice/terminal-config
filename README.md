@@ -33,6 +33,6 @@ Used to send your files and directories to the trash instead of removing them pe
 ```$ npm install --global trash-cli```
 
 
-### Installation for Linux Users
+## Installation for Linux Users
 
 TODO
