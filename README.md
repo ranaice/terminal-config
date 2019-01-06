@@ -3,7 +3,7 @@
 Instructions to set up ZSH + custom theme and plugins.  
 This theme was inspired by Agnoster and [Cobalt2](https://github.com/wesbos/Cobalt2-iterm) themes.
 
-![alt text](https://github.com/ranaice/zed-terminal-theme/blob/master/zed-theme.png)
+![alt text](https://github.com/ranaice/zed-terminal-theme/blob/master/zed-theme-v2.png)
 
 ## Installation for OSX Users
 
