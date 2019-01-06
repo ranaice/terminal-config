@@ -46,13 +46,13 @@ prompt_end() {
 # Each component will draw itself, and hide itself if no information needs to be shown
 
 # Context: user@hostname (who am I and where am I)
-prompt_context() {
-  local user=`whoami`
+# prompt_context() {
+#   local user=`whoami`
 
-  if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)\uf015"
-  fi
-}
+#   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+#     prompt_segment black default "%(!.%{%F{yellow}%}.)\uf015"
+#   fi
+# }
 
 # Git: branch/detached head, dirty status
 prompt_git() {
@@ -72,16 +72,27 @@ prompt_git() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue black '%b%{%F{250}%}\ufc6e %3~'
+  prompt_segment blue black "%b%{%F{250}%}\uf015 \ue0b1  %3~"
   # prompt_segment blue black "…${PWD: -30}"
 }
 
 ## Main prompt
 build_prompt() {
-  prompt_context
+#   prompt_context
   prompt_dir
   prompt_git
   prompt_end
+}
+
+#Adds a new line after each command
+precmd() {
+    # Print a newline before the prompt, unless it's the
+    # first prompt in the process.
+    if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+        NEW_LINE_BEFORE_PROMPT=1
+    elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+        echo -n "\n"
+    fi
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
@@ -92,5 +103,9 @@ TRAPALRM() {
     zle reset-prompt
 }
 
+build_right_prompt() {
+    echo -n '%{%F{240}%}%*'
+}
+
 # You can type spectrum_ls in the terminal to see available colors
-RPROMPT='%{%F{240}%}%*'
+RPROMPT='$(build_right_prompt)'
