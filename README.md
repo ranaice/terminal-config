@@ -3,10 +3,9 @@
 Instructions to set up ZSH + custom theme and plugins.  
 This theme was inspired by Agnoster and [Cobalt2](https://github.com/wesbos/Cobalt2-iterm) themes.
 
-## Installation
+## Installation for OSX Users
 
-### MacOS Users
-
+### _Mandatory_
 #### iTerm2
 Download and install [iTerm2](https://www.iterm2.com/).
 
@@ -22,6 +21,7 @@ Change your default shell to be ZSH
 
 Pick one font you like from [Nerd Fonts](https://nerdfonts.com/#home), install it and choose it on iTerm preferences.
 
+### _Optional_
 #### Z
 
 Add this ```. ~/z.sh``` to your ```.zshrc``` file
@@ -33,6 +33,6 @@ Used to send your files and directories to the trash instead of removing them pe
 ```$ npm install --global trash-cli```
 
 
-### For Linux Users
+### Installation for Linux Users
 
 TODO
